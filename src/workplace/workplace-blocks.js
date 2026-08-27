@@ -6,13 +6,13 @@ const blocks = [
     type: "section",
     text: {
       type: "mrkdwn",
-      text: ":zoom-icon: Hjemme / Zoom",
+      text: ":working-from-home: Hjemmekontor",
     },
     accessory: {
       type: "button",
       text: {
         type: "plain_text",
-        text: ":zoom-icon:",
+        text: ":working-from-home:",
         emoji: true,
       },
       value: "home",
@@ -23,13 +23,13 @@ const blocks = [
     type: "section",
     text: {
       type: "mrkdwn",
-      text: ":office: Kontoret (FYA1)",
+      text: ":working-in-office: Kontoret (FYA1)",
     },
     accessory: {
       type: "button",
       text: {
         type: "plain_text",
-        text: ":office:",
+        text: ":working-in-office:",
         emoji: true,
       },
       value: "office",
@@ -40,13 +40,13 @@ const blocks = [
     type: "section",
     text: {
       type: "mrkdwn",
-      text: ":desert_island: Ferie / fri",
+      text: ":relaxing: Ferie / fri",
     },
     accessory: {
       type: "button",
       text: {
         type: "plain_text",
-        text: ":desert_island:",
+        text: ":relaxing:",
         emoji: true,
       },
       value: "vacation",
@@ -57,33 +57,16 @@ const blocks = [
     type: "section",
     text: {
       type: "mrkdwn",
-      text: ":face_with_thermometer: Syk",
+      text: ":meow-sip: Annet (kommenter i tråd)",
     },
     accessory: {
       type: "button",
       text: {
         type: "plain_text",
-        text: ":face_with_thermometer:",
+        text: ":meow-sip:",
         emoji: true,
       },
-      value: "sick",
-      action_id: "button_select_workplace",
-    },
-  },
-  {
-    type: "section",
-    text: {
-      type: "mrkdwn",
-      text: ":shrug: Vet ikke ...",
-    },
-    accessory: {
-      type: "button",
-      text: {
-        type: "plain_text",
-        text: ":shrug:",
-        emoji: true,
-      },
-      value: "dontknow",
+      value: "other",
       action_id: "button_select_workplace",
     },
   },

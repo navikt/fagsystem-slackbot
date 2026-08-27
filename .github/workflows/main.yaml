@@ -1,0 +1,44 @@
+name: Build and deploy
+on:
+  workflow_dispatch: # Allow manually triggered workflow run
+jobs:
+  build-and-deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v7
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          registry-url: https://npm.pkg.github.com
+          cache: pnpm
+
+      - name: Install dependencies
+        shell: bash
+        run: pnpm install --frozen-lockfile
+
+      - name: Build app
+        shell: bash
+        run: pnpm run build
+
+      - name: Build and push docker image
+        id: docker-push
+        uses: nais/docker-build-push@v0
+        with:
+          team: fagsystem-brukeropplevelse
+
+      - name: Deploy to Nais
+        uses: nais/deploy/actions/deploy@v2
+        env:
+          CLUSTER: dev-gcp
+          RESOURCE: .nais/app.yaml
+          WORKLOAD_IMAGE: ${{ steps.docker-push.outputs.image }}

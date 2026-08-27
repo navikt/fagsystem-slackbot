@@ -63,7 +63,7 @@ const setupActions = (app) => {
         ts: body.message.ts,
         channel: body.channel.id,
         blocks,
-        text: "Some random message...",
+        text: "updating responses",
       });
 
       if (result.ok) {
@@ -72,14 +72,6 @@ const setupActions = (app) => {
         console.error(`Error on message update: ${result.error}`);
       }
     } catch (e) {
-      /*
-            await app.client.chat.postEphemeral({
-                token: context.botToken,
-                channel: body.channel.id,
-                user: body.user.id,
-                text: "En feil oppsto..."
-            })
-*/
       console.error(e);
     }
   });
