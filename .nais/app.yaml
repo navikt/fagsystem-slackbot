@@ -7,7 +7,6 @@ metadata:
   labels:
     team: fagsystem-brukeropplevelse
 spec:
-  image: { { image } }
   port: 8080
   replicas:
     min: 1
