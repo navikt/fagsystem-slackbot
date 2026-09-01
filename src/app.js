@@ -25,6 +25,12 @@ app.error((error) => {
   console.error("Bolt error:", error);
 });
 
+// TEMP diagnostics: logs every raw request, even ones Slack signature verification rejects
+app.receiver.app.use((req, res, next) => {
+  console.log(`Incoming request: ${req.method} ${req.originalUrl}`);
+  next();
+});
+
 (async () => {
   await app.start(PORT);
 
