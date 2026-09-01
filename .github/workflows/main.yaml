@@ -26,10 +26,6 @@ jobs:
         shell: bash
         run: pnpm install --frozen-lockfile
 
-      - name: Build app
-        shell: bash
-        run: pnpm run build
-
       - name: Build and push docker image
         id: docker-push
         uses: nais/docker-build-push@v0
