@@ -1,6 +1,7 @@
 const { App } = require("@slack/bolt");
 const setupWorkplaceJob = require("./workplace/workplace-poll-job");
 const setupWorkplaceAction = require("./workplace/select-workplace-action");
+const setupEventListener = require("./events");
 
 const PORT = process.env.PORT || 8080;
 
@@ -31,5 +32,7 @@ app.error((error) => {
 
   console.log(`⚡️ Bolt app is running on port ${PORT}!`);
 })();
+
+setupEventListener(app);
 
 setupWorkplaceAction(app);
