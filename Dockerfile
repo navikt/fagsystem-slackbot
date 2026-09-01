@@ -17,6 +17,6 @@ COPY --from=base /usr/src/app /app
 ENV NODE_ENV=production
 
 WORKDIR /app
-EXPOSE 8080
+EXPOSE 3000
 
 CMD ["./src/app.js"]

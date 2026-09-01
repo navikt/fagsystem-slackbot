@@ -3,7 +3,7 @@ const setupWorkplaceJob = require("./workplace/workplace-poll-job");
 const setupWorkplaceAction = require("./workplace/select-workplace-action");
 const setupEventListener = require("./events");
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
