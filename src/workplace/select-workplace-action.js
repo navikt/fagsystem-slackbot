@@ -33,6 +33,7 @@ const addOrRemoveUser = (block, userId) => {
 };
 
 const updateBlocks = async (username, blocks, actions) => {
+  console.log(`update blocks from action @${actions[0].value}`);
   const action = actions[0];
 
   return blocks.map((block) => {
@@ -46,12 +47,13 @@ const updateBlocks = async (username, blocks, actions) => {
 
 const setupActions = (app) => {
   app.action("button_select_workplace", async ({ ack, body, context }) => {
+    console.log(
+      `select_workplace_action triggered by user @${body.user.username}`,
+    );
     await ack();
 
     try {
-      console.log(
-        `select_workplace_action triggered by user @${body.user.username}`,
-      );
+      console.log(`inside try after ack`);
       const blocks = await updateBlocks(
         body.user.id,
         body.message.blocks,

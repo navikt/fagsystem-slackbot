@@ -2,7 +2,7 @@ const CronJob = require("cron").CronJob;
 const initWorkplaceBlocks = require("./workplace-blocks");
 
 const TIMEZONE = "Europe/Oslo";
-const channel = "team-fagsystem-intern";
+const channel = "tale-privat";
 
 const now = () => {
   return new Date().toLocaleTimeString("no-NO", { timeZone: TIMEZONE });
@@ -37,7 +37,7 @@ const setupJob = (app) => {
     }
   };
 
-  const time = "00 55 13 * * 1-5"; // kl 13:55:00, man-fre, alle uker, alle måneder
+  const time = "00 10 14 * * 1-5"; // kl 13:55:00, man-fre, alle uker, alle måneder
 
   console.log(`Init cronjob with crontime: ${time}`);
 
