@@ -1,4 +1,4 @@
-FROM node:24-bookworm-slim AS base
+FROM node:24-slim AS base
 
 WORKDIR /usr/src/app
 
@@ -7,7 +7,7 @@ COPY package.json ./package.json
 COPY pnpm-lock.yaml ./pnpm-lock.yaml
 
 ENV NODE_ENV="production"
-RUN npm install -g pnpm
+RUN corepack enable
 RUN pnpm install
 
 
