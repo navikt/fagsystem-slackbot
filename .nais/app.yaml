@@ -26,6 +26,7 @@ spec:
       external:
         - host: slack.com
         - host: api.slack.com
+        - host: wss.slack.com
   env:
     - name: PORT
       value: "3000"
